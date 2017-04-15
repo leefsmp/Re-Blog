@@ -18,8 +18,7 @@ const config = {
     dbhost: 'localhost',
     port: 27017,
     collections: {
-      materials: 'rcdb.materials',
-      models: 'rcdb.models'
+      posts: 'posts'
     }
   }
 }

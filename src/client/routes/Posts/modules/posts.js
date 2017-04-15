@@ -27,7 +27,7 @@ const ACTION_HANDLERS = {
 
     const dbItems = _.sortBy(action.payload,
       (dbItem) => {
-        return dbItem.name
+        return dbItem.title
       })
 
     return Object.assign({}, state, {

@@ -155,7 +155,7 @@ function runServer(app) {
     })
 
     const dbSvc = new MongoDbSvc(config.database)
-    const postSvc = new PostSvc()
+    const postSvc = new PostSvc(config.database)
 
     dbSvc.connect().then(() => {
 

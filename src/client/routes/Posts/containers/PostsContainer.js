@@ -1,13 +1,18 @@
 import { connect } from 'react-redux'
 
 import {
+  loadDbItems
+} from '../modules/posts'
+
+
+import {
   setViewerEnv
   } from '../../../store/app'
 
 import PostsView from '../components/PostsView'
 
 const mapDispatchToProps = {
-
+  loadDbItems
 }
 
 const mapStateToProps = (state) => (

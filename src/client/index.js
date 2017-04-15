@@ -10,6 +10,7 @@ import React from 'react'
 import ServiceManager from 'SvcManager'
 import StorageSvc from 'StorageSvc'
 import SocketSvc from 'SocketSvc'
+import PostsSvc from 'PostsSvc'
 import EventSvc from 'EventSvc'
 
 // ========================================================
@@ -35,6 +36,10 @@ socketSvc.connect().then((socket) => {
   console.log(error)
 })
 
+const postsSvc = new PostsSvc({
+  apiUrl: '/api/posts'
+})
+
 const eventSvc = new EventSvc({
 
 })
@@ -45,6 +50,7 @@ const eventSvc = new EventSvc({
 ServiceManager.registerService(storageSvc)
 ServiceManager.registerService(socketSvc)
 ServiceManager.registerService(eventSvc)
+ServiceManager.registerService(postsSvc)
 
 // ========================================================
 // Store Instantiation

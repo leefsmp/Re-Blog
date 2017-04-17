@@ -24,6 +24,7 @@ module.exports = function() {
           ]
         },
         pageQuery: {
+          content: 1,
           title: 1
         }
       }

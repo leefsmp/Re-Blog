@@ -1,10 +1,37 @@
 .posts-view {
+
   height: calc(100vh - 65px);
   position: relative;
+  background: #00daff;
   width: 100vw;
-}
 
-.posts-view .post-item {
+  .post-items {
+    position: relative;
+    width: calc(100% - 400px);
+    margin: 0 0 0 200px;
+    background: #0046ff;
+    top: 20px;
+    height: calc(100% - 40px);
+    overflow: scroll;
+    padding-top: 20px;
+  }
 
+  .post-item {
+    border: 1px solid white;
+    text-align: left;
+    height: 50px;
+    margin: 0 0 10px 10px;
+    width: calc(100% - 20px);
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
 
+  .post-item > a {
+    color: white;
+  }
+
+  .post-item > a:hover {
+    text-decoration: none;
+  }
 }

@@ -1,6 +1,5 @@
 import 'Dialogs/dialogs.scss'
 import Header from 'Header'
-import 'forge-white.scss'
 import React from 'react'
 import 'core.scss'
 

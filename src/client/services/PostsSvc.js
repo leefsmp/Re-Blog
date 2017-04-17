@@ -34,4 +34,15 @@ export default class PostsSvc extends BaseSvc {
 
     return this.api.ajax(url)
   }
+
+  /////////////////////////////////////////////////////////////////
+  //
+  //
+  /////////////////////////////////////////////////////////////////
+  getPost (id) {
+
+    const url = this._config.apiUrl + `/${id}`
+
+    return this.api.ajax(url)
+  }
 }

@@ -1,25 +1,10 @@
 import InstagramEmbed from 'react-instagram-embed'
 import ServiceManager from 'SvcManager'
+import { Link } from 'react-router'
 import './PostsView.scss'
 import React from 'react'
 
 class PostsView extends React.Component {
-
-  /////////////////////////////////////////////////////////
-  //
-  //
-  /////////////////////////////////////////////////////////
-  static propTypes = {
-    dbItems: React.PropTypes.array
-  }
-
-  /////////////////////////////////////////////////////////
-  //
-  //
-  /////////////////////////////////////////////////////////
-  static defaultProps = {
-    dbItems: []
-  }
 
   /////////////////////////////////////////////////////////
   //
@@ -31,24 +16,71 @@ class PostsView extends React.Component {
 
     this.postsSvc = ServiceManager.getService(
       'PostsSvc')
+
+    this.state = {
+      post: null,
+      posts: []
+    }
   }
 
   /////////////////////////////////////////////////////////
   //
   //
   /////////////////////////////////////////////////////////
-  componentWillMount () {
+  setReactState (state) {
 
-    const { id } = this.props.location.query
+    return new Promise((resolve) => {
+
+      const newState = Object.assign(
+        {}, this.state, state)
+
+      this.setState(newState, () => {
+        resolve()
+      })
+    })
+  }
+
+  /////////////////////////////////////////////////////////
+  //
+  //
+  /////////////////////////////////////////////////////////
+  componentDidMount () {
+
+    this.update (this.props)
+  }
+
+  /////////////////////////////////////////////////////////
+  //
+  //
+  /////////////////////////////////////////////////////////
+  componentWillReceiveProps (props) {
+
+    this.update (props)
+  }
+
+  /////////////////////////////////////////////////////////
+  //
+  //
+  /////////////////////////////////////////////////////////
+  update (props) {
+
+    const { id } = props.location.query
 
     if (id) {
+
+      this.postsSvc.getPost(id).then((post) => {
+        this.setReactState({
+          post
+        })
+      })
 
     } else {
 
       this.postsSvc.getPosts().then((posts) => {
-
-        console.log(posts)
-        this.props.loadDbItems(posts)
+        this.setReactState({
+          post: null,
+          posts
+        })
       })
     }
   }
@@ -59,14 +91,49 @@ class PostsView extends React.Component {
   /////////////////////////////////////////////////////////
   renderPosts (posts) {
 
-    return posts.map((post) => {
+    const postList = posts.map((post) => {
 
       return (
         <div key={post._id} className="post-item">
-          {post.title}
+          <Link  to={`/posts?id=${post._id}`}>
+            <div className="title">
+              {post.title}
+            </div>
+            <div className="content">
+              {post.content}
+            </div>
+          </Link>
         </div>
       )
     })
+
+    return (
+      <div className="posts-view">
+        <div className="post-items">
+          {postList}
+        </div>
+      </div>
+    )
+  }
+
+  /////////////////////////////////////////////////////////
+  //
+  //
+  /////////////////////////////////////////////////////////
+  renderPostDetails (post) {
+
+    return (
+      <div className="posts-view">
+        <div className="post-item-details">
+          <div className="title">
+            {post.title}
+          </div>
+          <div className="content">
+            {post.content}
+          </div>
+        </div>
+      </div>
+    )
   }
 
   /////////////////////////////////////////////////////////
@@ -75,11 +142,10 @@ class PostsView extends React.Component {
   /////////////////////////////////////////////////////////
   render () {
 
-    return (
-      <div className="posts-view">
-        {this.renderPosts(this.props.dbItems)}
-      </div>
-    )
+    return this.state.post
+      ? this.renderPostDetails(this.state.post)
+      : this.renderPosts(this.state.posts)
+
   }
 }
 

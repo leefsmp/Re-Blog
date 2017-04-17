@@ -96,3 +96,6 @@ export default class AppNavbar extends React.Component {
     )
   }
 }
+
+
+//http://www.legalnomads.com/overnight-ferry-insanity-iloilo-to-cebu-city/

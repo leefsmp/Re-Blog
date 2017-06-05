@@ -186,12 +186,8 @@ module.exports = {
     // outputs html from .ejs template
     new HtmlWebpackPlugin({
 
-      viewer3D: config.forge.viewer.viewer3D,
-      threeJS: config.forge.viewer.threeJS,
-      style: config.forge.viewer.style,
-
       template: path.resolve(__dirname, '../src/client/layouts/index.ejs'),
-      title: 'Forge | Boiler',
+      title: 'Judy Hideway',
       filename: 'index.html',
       minify: {
         removeStyleLinkTypeAttributes: true,

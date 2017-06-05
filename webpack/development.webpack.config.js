@@ -101,7 +101,7 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/client/layouts/index.ejs'),
-      title: 'Re-Blog | DEV',
+      title: 'Judy Hideway | DEV',
       filename: 'index.html',
       minify: false,
       inject: 'body'

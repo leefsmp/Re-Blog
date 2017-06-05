@@ -1,9 +1,9 @@
 {
-  "name": "forge-react-boiler",
-  "description": "Forge React Boiler",
-  "repository": "https://github.com/Autodesk-Forge/forge-react-boiler.nodejs",
-  "logo": "https://github.com/Autodesk-Forge/forge-react-boiler.nodejs/resources/img/forge.png",
-  "keywords": ["autodesk", "forge", "node", "express"],
+  "name": "Re-Blog",
+  "description": "This is Re-Blog",
+  "repository": "https://github.com/leefsmp/re-blog",
+  "logo": "https://github.com/leefsmp/re-blog/resources/img/banner.png",
+  "keywords": ["re-blog"],
   "env": {
     "NODE_ENV": {
       "description": "Environment, defaulted to production",

@@ -50,7 +50,7 @@ export default class AppNavbar extends React.Component {
         <Navbar.Header>
           <Navbar.Brand>
             <NavItem className="forge-brand-item">
-              <img height="30" src="/resources/img/coconut.png"/>
+              <img height="30" src="/resources/img/banner.png"/>
             </NavItem>
           </Navbar.Brand>
           <Navbar.Toggle/>

@@ -1,3 +1,4 @@
+import InstagramEmbed from 'react-instagram-embed'
 import { IndexLink, Link } from 'react-router'
 import React from 'react'
 import './HomeView.scss'
@@ -12,14 +13,52 @@ class HomeView extends React.Component {
 
     super()
 
+    this.onImgLoaded = this.onImgLoaded.bind(this)
+
     this.state = {
-      models: [
-        {
-          path: 'resources/models/seat/seat.svf',
-          thumbnailClass: 'seat-thumbnail',
-          name: 'Seat'
+
+    }
+  }
+
+  sleep (ms) {
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(), ms)
+    })
+  }
+
+  async onImgLoaded () {
+
+    while($('.instagram-media').length === 0) {
+
+      await this.sleep(100)
+    }
+
+    const head = $('.instagram-media').contents().find("head")
+
+    const css = `
+      <style type="text/css">
+        .EmbedHeader {
+          display: none !important;
         }
-      ]
+
+        .EmbedFrame {
+          position: relative;
+          padding-bottom: 100% !important;
+        }
+      </style>`
+
+    const iFrame = $('#instagram-embed-0')[0]
+
+    $('#instagram-embed-0').on('load', ()=>{
+
+      $(head).append(css)
+    })
+
+    while(true) {
+
+      await this.sleep(100)
+
+      $(head).append(css)
     }
   }
 
@@ -29,30 +68,11 @@ class HomeView extends React.Component {
   /////////////////////////////////////////////////////////////////
   render() {
 
+    //<img className='logo-hero'/>
+
     return (
       <div className="home">
-        <img className='logo-hero'/>
-        <div className="models">
-          <div className="title">
-            Choose Model
-          </div>
-          <div className="content responsive-grid">
-            {
-              this.state.models.map((model, idx) => {
-                return (
-                  <Link key={idx} to={`/viewer?path=${model.path}`}>
-                    <figure>
-                      <figcaption>
-                        {model.name}
-                      </figcaption>
-                      <img className={model.thumbnailClass || 'default-thumbnail'}
-                        src={model.thumbnail || ''}/>
-                    </figure>
-                  </Link>)
-              })
-            }
-          </div>
-        </div>
+        <InstagramEmbed hideCaption={true} maxWidth={600} url='https://instagr.am/p/BS5rMw8BgR1/' onSuccess={this.onImgLoaded}/>
       </div>
     )
   }

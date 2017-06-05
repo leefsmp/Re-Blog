@@ -5,7 +5,6 @@ import ServiceManager from 'SvcManager'
 // ------------------------------------
 export const SET_NAVBAR_STATE = 'SET_NAVBAR_STATE'
 export const SAVE_APP_STATE = 'SAVE_APP_STATE'
-export const SET_VIEWER_ENV = 'SET_VIEWER_ENV'
 
 // ------------------------------------
 // Actions
@@ -20,13 +19,6 @@ export function setNavbarState (state) {
   return {
     type    : SET_NAVBAR_STATE,
     payload : state
-  }
-}
-
-export function setViewerEnv (env) {
-  return {
-    type    : SET_VIEWER_ENV,
-    payload : env
   }
 }
 
@@ -53,13 +45,6 @@ const ACTION_HANDLERS = {
     return Object.assign({}, state, {
       navbar
     })
-  },
-
-  [SET_VIEWER_ENV] : (state, action) => {
-
-    return Object.assign({}, state, {
-      viewerEnv: action.payload
-    })
   }
 }
 
@@ -75,19 +60,11 @@ const createInitialState = () => {
         about: true,
         home: true
       }
-    },
-    viewerEnv: null
+    }
   }
 
-  const storageSvc = ServiceManager.getService(
-    'StorageSvc')
-
-  const storageState = storageSvc.load(
-    'AppState')
-
   const initialState = Object.assign({},
-    defaultState,
-    storageState)
+    defaultState)
 
   return initialState
 }

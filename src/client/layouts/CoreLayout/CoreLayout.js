@@ -1,3 +1,4 @@
+import Background from './background'
 import 'Dialogs/dialogs.scss'
 import Header from 'Header'
 import React from 'react'
@@ -17,6 +18,7 @@ class CoreLayout extends React.Component {
       <div className='container text-center'>
         <Header {...this.props}/>
         <div className='core-layout'>
+          <Background/>
           {children}
         </div>
       </div>
@@ -25,3 +27,5 @@ class CoreLayout extends React.Component {
 }
 
 export default CoreLayout
+
+//https://colorlib.com/travelify/

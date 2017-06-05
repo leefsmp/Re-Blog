@@ -10,13 +10,13 @@ import util from 'util'
 import path from 'path'
 
 //Endpoints
-import SocketAPI from './api/endpoints/socket'
+import InstagramAPI from './api/endpoints/instagram'
 import PostAPI from './api/endpoints/posts'
 
 //Services
 import ServiceManager from './api/services/SvcManager'
+import InstagramSvc from './api/services/InstagramSvc'
 import MongoDbSvc from './api/services/MongoDbSvc'
-import SocketSvc from './api/services/SocketSvc'
 import PostSvc from './api/services/PostSvc'
 
 //Config (NODE_ENV dependant)
@@ -81,7 +81,7 @@ app.use(helmet())
 // API Routes setup - Disabled except socket by default
 //
 /////////////////////////////////////////////////////////////////////
-app.use('/api/socket', SocketAPI())
+app.use('/api/instagram', InstagramAPI())
 app.use('/api/posts', PostAPI())
 
 /////////////////////////////////////////////////////////////////////
@@ -154,6 +154,7 @@ function runServer(app) {
         ' reason: ', reason)
     })
 
+    const instaSvc = new InstagramSvc(config.instagram)
     const dbSvc = new MongoDbSvc(config.database)
     const postSvc = new PostSvc(config.database)
 
@@ -166,12 +167,7 @@ function runServer(app) {
     var server = app.listen(
       process.env.PORT || config.server_port || 3000, () => {
 
-        var socketSvc = new SocketSvc({
-          session,
-          server
-        })
-
-        ServiceManager.registerService(socketSvc)
+        ServiceManager.registerService(instaSvc)
 
         console.log('Server listening on: ')
         console.log(server.address())
@@ -189,5 +185,5 @@ function runServer(app) {
 //
 //
 /////////////////////////////////////////////////////////////////////
-runServer(app)
+runServer (app)
 

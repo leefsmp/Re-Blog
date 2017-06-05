@@ -20,6 +20,17 @@ const config = {
     collections: {
       posts: 'posts'
     }
+  },
+
+  instagram: {
+    oauth: {
+      hardcodedToken: '',
+      clientId: process.env.INSTA_CLIENT_ID,
+      clientSecret: process.env.INSTA_CLIENT_SECRET,
+      baseUri: '',
+      authenticationUri: '',
+      accessTokenUri: ''
+    }
   }
 }
 

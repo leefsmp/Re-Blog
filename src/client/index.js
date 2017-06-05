@@ -8,48 +8,19 @@ import React from 'react'
 
 //Services
 import ServiceManager from 'SvcManager'
-import StorageSvc from 'StorageSvc'
-import SocketSvc from 'SocketSvc'
 import PostsSvc from 'PostsSvc'
-import EventSvc from 'EventSvc'
 
 // ========================================================
 // Services Initialization
 // ========================================================
 
-const storageSvc = new StorageSvc({
-  storageKey: 'Autodesk.Forge.Storage'
-})
-
-const socketSvc = new SocketSvc({
-  host: config.client.host,
-  port: config.client.port
-})
-
-socketSvc.connect().then((socket) => {
-
-  console.log('client socket connected')
-
-}, (error) => {
-
-  console.log('error connecting client socket ...')
-  console.log(error)
-})
-
 const postsSvc = new PostsSvc({
   apiUrl: '/api/posts'
-})
-
-const eventSvc = new EventSvc({
-
 })
 
 // ========================================================
 // Services Registration
 // ========================================================
-ServiceManager.registerService(storageSvc)
-ServiceManager.registerService(socketSvc)
-ServiceManager.registerService(eventSvc)
 ServiceManager.registerService(postsSvc)
 
 // ========================================================

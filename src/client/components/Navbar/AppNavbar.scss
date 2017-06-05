@@ -50,6 +50,9 @@
 
 .forge-brand-item, {
   list-style: none;
+  position: relative;
+  cursor:default;
+  top: -5px;
 }
 
 .forge-brand-item > a,

@@ -89,28 +89,46 @@ class PostsView extends React.Component {
   //
   //
   /////////////////////////////////////////////////////////
+  renderPost (post) {
+
+    return (
+      <div key={post._id} className="post-item">
+        <Link  to={`/posts?id=${post._id}`}>
+          <div className="post-image">
+          </div>
+          <h2 className="title">
+              {post.title}
+          </h2>
+          <div className="content">
+              {post.content}
+          </div>
+          <div className="footer">
+
+          </div>
+        </Link>
+      </div>
+    )
+  }
+
+  /////////////////////////////////////////////////////////
+  //
+  //
+  /////////////////////////////////////////////////////////
   renderPosts (posts) {
 
     const postList = posts.map((post) => {
 
-      return (
-        <div key={post._id} className="post-item">
-          <Link  to={`/posts?id=${post._id}`}>
-            <div className="title">
-              {post.title}
-            </div>
-            <div className="content">
-              {post.content}
-            </div>
-          </Link>
-        </div>
-      )
+      return this.renderPost(post)
     })
 
     return (
       <div className="posts-view">
-        <div className="post-items">
-          {postList}
+        <div className="container">
+          <div className="primary">
+            <div className="post-items">
+            {postList}
+            </div>
+          </div>
         </div>
       </div>
     )

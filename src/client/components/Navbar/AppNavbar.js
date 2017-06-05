@@ -49,10 +49,8 @@ export default class AppNavbar extends React.Component {
       <Navbar className="forge-navbar">
         <Navbar.Header>
           <Navbar.Brand>
-            <NavItem className="forge-brand-item"
-              href="https://forge.autodesk.com"
-              target="_blank">
-              <img height="30" src=""/>
+            <NavItem className="forge-brand-item">
+              <img height="30" src="/resources/img/coconut.png"/>
             </NavItem>
           </Navbar.Brand>
           <Navbar.Toggle/>

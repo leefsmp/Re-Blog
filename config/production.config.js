@@ -26,6 +26,27 @@ const config = {
     oauth: {
       hardcodedToken: ''
     }
+  },
+
+  img: {
+    bucketKey: 'hd-img'
+  },
+
+  forge: {
+
+    oauth: {
+      clientSecret: process.env.FORGE_CLIENT_SECRET,
+      clientId: process.env.FORGE_CLIENT_ID,
+
+      scope: [
+        'data:read',
+        'data:write',
+        'data:create',
+        'bucket:read',
+        'bucket:create',
+        'bucket:delete'
+      ]
+    }
   }
 }
 

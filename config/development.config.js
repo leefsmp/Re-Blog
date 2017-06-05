@@ -22,6 +22,10 @@ const config = {
     }
   },
 
+  img: {
+    bucketKey: 'hd-img'
+  },
+
   instagram: {
     oauth: {
       hardcodedToken: '',
@@ -30,6 +34,23 @@ const config = {
       baseUri: '',
       authenticationUri: '',
       accessTokenUri: ''
+    }
+  },
+
+  forge: {
+
+    oauth: {
+      clientSecret: process.env.FORGE_CLIENT_SECRET,
+      clientId: process.env.FORGE_CLIENT_ID,
+
+      scope: [
+        'data:read',
+        'data:write',
+        'data:create',
+        'bucket:read',
+        'bucket:create',
+        'bucket:delete'
+      ]
     }
   }
 }

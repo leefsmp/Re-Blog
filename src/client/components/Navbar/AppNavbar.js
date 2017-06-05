@@ -46,7 +46,7 @@ export default class AppNavbar extends React.Component {
 
     return (
 
-      <Navbar className="forge-navbar">
+      <Navbar className="forge-navbar" staticTop>
         <Navbar.Header>
           <Navbar.Brand>
             <NavItem className="forge-brand-item">
@@ -65,6 +65,12 @@ export default class AppNavbar extends React.Component {
               <LinkContainer to={{ pathname: '/', query: { } }}>
                 <NavItem eventKey="home">
                   &nbsp; Home
+                </NavItem>
+              </LinkContainer>
+
+              <LinkContainer to={{ pathname: '/posts'}}>
+                <NavItem eventKey="posts">
+                &nbsp; Posts
                 </NavItem>
               </LinkContainer>
             </Nav>

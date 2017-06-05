@@ -1,5 +1,6 @@
 import Trianglify from './react-trianglify.js'
 import Measure from 'react-measure'
+import './background.scss'
 import React from 'react'
 
 class Background extends React.Component {
@@ -65,11 +66,10 @@ class Background extends React.Component {
 
             return (
               <div ref={measureRef} className="background">
-
                 {
                   (dimensions.with !==0 && dimensions.height !==0) &&
                   <Trianglify output="svg"
-                    seed='vhlf5'
+                    cell_size={60}
                     x_colors='Blues'
                     y_colors='match_x'
                     variance={variance}

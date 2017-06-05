@@ -15,10 +15,10 @@ class CoreLayout extends React.Component {
     const { children } = this.props
 
     return (
-      <div className='container text-center'>
-        <Header {...this.props}/>
-        <div className='core-layout'>
-          <Background/>
+      <div className='core-layout'>
+        <Background/>
+        <div className="content">
+          <Header {...this.props}/>
           {children}
         </div>
       </div>

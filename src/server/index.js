@@ -13,12 +13,15 @@ import path from 'path'
 //Endpoints
 import InstagramAPI from './api/endpoints/instagram'
 import PostAPI from './api/endpoints/posts'
+import OssAPI from './api/endpoints/oss'
 
 //Services
 import ServiceManager from './api/services/SvcManager'
 import InstagramSvc from './api/services/InstagramSvc'
 import MongoDbSvc from './api/services/MongoDbSvc'
+import ForgeSvc from './api/services/ForgeSvc'
 import PostSvc from './api/services/PostSvc'
+import OssSvc from './api/services/OssSvc'
 
 //Config (NODE_ENV dependant)
 import config from'c0nfig'
@@ -84,6 +87,7 @@ app.use(helmet())
 /////////////////////////////////////////////////////////////////////
 app.use('/api/instagram', InstagramAPI())
 app.use('/api/posts', PostAPI())
+app.use('/api/oss', OssAPI())
 
 /////////////////////////////////////////////////////////////////////
 // This rewrites all routes requests to the root /index.html file
@@ -156,19 +160,23 @@ function runServer(app) {
     })
 
     const instaSvc = new InstagramSvc(config.instagram)
-    const dbSvc = new MongoDbSvc(config.database)
-    const postSvc = new PostSvc(config.database)
+    const dbSvc    = new MongoDbSvc(config.database)
+    const postSvc  = new PostSvc(config.database)
+    const forgeSvc = new ForgeSvc(config.forge)
+    const ossSvc   = new OssSvc()
+
+    ServiceManager.registerService(forgeSvc)
+    ServiceManager.registerService(instaSvc)
+    ServiceManager.registerService(postSvc)
+    ServiceManager.registerService(ossSvc)
 
     dbSvc.connect().then(() => {
 
-      ServiceManager.registerService(postSvc)
       ServiceManager.registerService(dbSvc)
     })
 
     var server = app.listen(
       process.env.PORT || config.server_port || 3000, () => {
-
-        ServiceManager.registerService(instaSvc)
 
         console.log('Server listening on: ')
         console.log(server.address())

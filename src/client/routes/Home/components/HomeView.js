@@ -72,7 +72,7 @@ class HomeView extends React.Component {
 
     return (
       <div className="home">
-        <InstagramEmbed hideCaption={true} maxWidth={600} url='https://instagr.am/p/BS5rMw8BgR1/' onSuccess={this.onImgLoaded}/>
+
       </div>
     )
   }

@@ -24,7 +24,7 @@ module.exports = function() {
           ]
         },
         pageQuery: {
-          content: 1,
+          teaser: 1,
           title: 1
         }
       }
@@ -41,7 +41,34 @@ module.exports = function() {
 
     } catch (error) {
 
-      res.status(error.statusCode || 404)
+      res.status(error.statusCode || 500)
+      res.json(error)
+    }
+  })
+
+  //////////////////////////////////////////////////////////////////////////////
+  //
+  //
+  ///////////////////////////////////////////////////////////////////////////////
+  router.get('/:id', async (req, res)=> {
+
+    try {
+
+      const postsSvc = ServiceManager.getService('PostsSvc')
+
+      const pageQuery = {
+
+      }
+
+      const response = await postsSvc.getById(
+        req.params.id,
+        {pageQuery})
+
+      res.json(response)
+
+    } catch (error) {
+
+      res.status(error.statusCode || 500)
       res.json(error)
     }
   })

@@ -44,7 +44,7 @@ export default class PostsSvc extends BaseSvc {
         })
 
         var model = await dbSvc.findOne(
-          _thisSvc._config.collections.models,
+          _thisSvc._config.collections.posts,
          query)
 
         return resolve(model)
@@ -79,7 +79,6 @@ export default class PostsSvc extends BaseSvc {
 
       } catch(ex) {
 
-        console.log(ex)
         return reject(ex)
       }
     })

@@ -12,12 +12,6 @@
     "NPM_CONFIG_PRODUCTION": {
       "description": "This forces Heroku to install devDependencies, needed to build the App. Must be false!",
       "value": "false"
-    },
-    "FORGE_CLIENT_ID": {
-      "description": "Your Forge Client ID API Key"
-    },
-    "FORGE_CLIENT_SECRET": {
-      "description": "Your Forge Client Secret API Key"
     }
   }
 }

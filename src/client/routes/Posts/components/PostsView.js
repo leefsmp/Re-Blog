@@ -94,7 +94,8 @@ class PostsView extends React.Component {
     return (
       <div key={post._id} className="post-item">
         <Link  to={`/posts?id=${post._id}`}>
-          <div className="post-image">
+          <div className="image-container">
+            <img src="/resources/img/test.png"/>
           </div>
           <h2 className="title">
               {post.title}

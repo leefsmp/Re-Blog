@@ -15,8 +15,8 @@ const config = {
     dbName: process.env.REBLOG_DBNAME,
     dbhost: process.env.REBLOG_DBHOST,
     port: process.env.REBLOG_DBPORT,
-    user: process.env.REBLOG_USER,
-    pass: process.env.REBLOG_PASS,
+    user: process.env.REBLOG_DBUSER,
+    pass: process.env.REBLOG_DBPASS,
     collections: {
       posts: 'posts'
     }
@@ -39,12 +39,7 @@ const config = {
       clientId: process.env.FORGE_CLIENT_ID,
 
       scope: [
-        'data:read',
-        'data:write',
-        'data:create',
-        'bucket:read',
-        'bucket:create',
-        'bucket:delete'
+        'data:read'
       ]
     }
   }

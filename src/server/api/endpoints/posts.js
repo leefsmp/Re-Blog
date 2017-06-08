@@ -24,8 +24,10 @@ module.exports = function() {
           ]
         },
         pageQuery: {
+          country: 1,
           teaser: 1,
-          title: 1
+          title: 1,
+          date: 1
         }
       }
 
@@ -56,13 +58,12 @@ module.exports = function() {
 
       const postsSvc = ServiceManager.getService('PostsSvc')
 
-      const pageQuery = {
-
-      }
+      const pageQuery = {}
 
       const response = await postsSvc.getById(
-        req.params.id,
-        {pageQuery})
+        req.params.id, {
+          pageQuery
+        })
 
       res.json(response)
 

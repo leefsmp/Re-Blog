@@ -44,12 +44,7 @@ const config = {
       clientId: process.env.FORGE_CLIENT_ID,
 
       scope: [
-        'data:read',
-        'data:write',
-        'data:create',
-        'bucket:read',
-        'bucket:create',
-        'bucket:delete'
+        'data:read'
       ]
     }
   }

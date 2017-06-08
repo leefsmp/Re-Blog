@@ -81,9 +81,11 @@ export default class AppNavbar extends React.Component {
             {
               appState.navbar.links.about &&
 
-              <NavItem eventKey="about" onClick={() => {this.openAboutDlg()}}>
-                &nbsp; About ...
-              </NavItem>
+              <LinkContainer to={{ pathname: '/about'}}>
+                <NavItem eventKey="about">
+                  About ...
+                </NavItem>
+              </LinkContainer>
             }
           </Nav>
 
@@ -100,6 +102,3 @@ export default class AppNavbar extends React.Component {
     )
   }
 }
-
-
-//http://www.legalnomads.com/overnight-ferry-insanity-iloilo-to-cebu-city/

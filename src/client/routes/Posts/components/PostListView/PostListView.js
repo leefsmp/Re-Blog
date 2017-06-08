@@ -1,7 +1,9 @@
 import InstagramEmbed from 'react-instagram-embed'
 import { browserHistory } from 'react-router'
 import ServiceManager from 'SvcManager'
+import RecentPosts from 'RecentPosts'
 import { Link } from 'react-router'
+import InfoBar from 'InfoBar'
 import React from 'react'
 
 class PostsView extends React.Component {
@@ -72,10 +74,10 @@ class PostsView extends React.Component {
           <div className="content">
               {post.teaser}
           </div>
-          <div className="footer">
-
-          </div>
         </Link>
+        <div className="footer">
+          <InfoBar date={post.date} country={post.country}/>
+        </div>
       </div>
     )
   }
@@ -98,6 +100,9 @@ class PostsView extends React.Component {
             <div className="post-items">
             {postList}
             </div>
+          </div>
+          <div className="secondary">
+            <RecentPosts/>
           </div>
         </div>
       </div>

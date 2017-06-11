@@ -1,14 +1,11 @@
-import Background from './background'
+import Background from 'Background'
 import 'Dialogs/dialogs.scss'
 import Header from 'Header'
+import Footer from 'Footer'
 import React from 'react'
 import 'core.scss'
 
 class CoreLayout extends React.Component {
-
-  static propTypes = {
-    children : React.PropTypes.element.isRequired
-  }
 
   render () {
 
@@ -20,6 +17,7 @@ class CoreLayout extends React.Component {
         <div className="content">
           <Header {...this.props}/>
           {children}
+          <Footer/>
         </div>
       </div>
     )
@@ -27,5 +25,3 @@ class CoreLayout extends React.Component {
 }
 
 export default CoreLayout
-
-//https://colorlib.com/travelify/

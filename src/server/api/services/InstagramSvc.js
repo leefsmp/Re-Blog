@@ -8,15 +8,17 @@ export default class InstagramSvc extends BaseSvc {
   //
   //
   /////////////////////////////////////////////////////////////////
-  constructor (opts) {
+  constructor (config) {
 
-    super (opts)
+    super (config)
 
     this.instagram = Instagram.instagram()
 
-    //this.instagram.use({
-    //  access_token: this._config.oauth.hardcodedToken
-    //})
+    this.instagram.use({
+      access_token: '5575952778.c2ba92e.e24eef63e15f4e60b22dcfb618a41009'
+      //client_secret: config.oauth.clientSecret,
+      //client_id: config.oauth.clientId
+    })
   }
 
   /////////////////////////////////////////////////////////////////
@@ -49,6 +51,29 @@ export default class InstagramSvc extends BaseSvc {
                 remaining,
                 limit
               })
+        })
+    })
+  }
+
+  /////////////////////////////////////////////////////////////////
+  //
+  //
+  /////////////////////////////////////////////////////////////////
+  getUserRecentMedia (userId) {
+
+    return new Promise((resolve, reject) => {
+
+      this.instagram.user_media_recent(userId,
+        (err, medias, pagination, remaining, limit) => {
+
+          return err
+            ? reject(err)
+            : resolve({
+              medias,
+              pagination,
+              remaining,
+              limit
+          })
         })
     })
   }

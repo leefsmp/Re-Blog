@@ -1,3 +1,3 @@
-import Background from './Background'
+import Background from './background.js'
 
 export default Background

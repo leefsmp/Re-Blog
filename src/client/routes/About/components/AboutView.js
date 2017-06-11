@@ -1,5 +1,6 @@
 import React from 'react'
 import './AboutView.scss'
+import Bio from 'Bio'
 
 class AboutView extends React.Component {
 
@@ -11,7 +12,9 @@ class AboutView extends React.Component {
 
     return (
       <div className="about">
-
+        <div className="container">
+          <Bio/>
+        </div>
       </div>
     )
   }

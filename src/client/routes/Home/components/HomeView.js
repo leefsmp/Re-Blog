@@ -1,5 +1,7 @@
 import InstagramEmbed from 'react-instagram-embed'
 import { IndexLink, Link } from 'react-router'
+import RecentMedias from 'RecentMedias'
+import RecentPosts from 'RecentPosts'
 import React from 'react'
 import './HomeView.scss'
 
@@ -68,11 +70,12 @@ class HomeView extends React.Component {
   /////////////////////////////////////////////////////////////////
   render() {
 
-    //<img className='logo-hero'/>
-
     return (
       <div className="home">
-
+        <div className="container">
+          <RecentPosts style="masonry"/>
+          <RecentMedias size="big"/>
+        </div>
       </div>
     )
   }

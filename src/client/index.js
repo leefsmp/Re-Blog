@@ -9,6 +9,7 @@ import React from 'react'
 //Services
 import ServiceManager from 'SvcManager'
 import PostsSvc from 'PostsSvc'
+import InstaSvc from 'InstaSvc'
 
 // ========================================================
 // Services Initialization
@@ -18,10 +19,15 @@ const postsSvc = new PostsSvc({
   apiUrl: '/api/posts'
 })
 
+const instaSvc = new InstaSvc({
+  apiUrl: '/api/instagram'
+})
+
 // ========================================================
 // Services Registration
 // ========================================================
 ServiceManager.registerService(postsSvc)
+ServiceManager.registerService(instaSvc)
 
 // ========================================================
 // Store Instantiation

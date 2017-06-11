@@ -1,5 +1,33 @@
 .home {
   position: relative;
+  overflow: scroll;
+  width: 100vw;
+
+  .container {
+    padding: 20px;
+  }
+
+  @media screen and (max-width: 1078px) {
+    .container {
+      width: 95%;
+    }
+  }
+
+  @media only screen and (max-width: 876px) {
+    .container {
+      background: rgba(248, 248, 248, 0.4);
+      margin: 30px auto 0 auto;
+      max-width: 978px;
+    }
+  }
+
+  @media only screen and (min-width: 875px) {
+    .container {
+      background: rgba(248, 248, 248, 0.4);
+      margin: 30px auto 0 auto;
+      max-width: 978px;
+    }
+  }
 }
 
 

@@ -187,7 +187,7 @@ module.exports = {
     new HtmlWebpackPlugin({
 
       template: path.resolve(__dirname, '../src/client/layouts/index.ejs'),
-      title: 'Judy Hideway',
+      title: "Judy's Hideway",
       filename: 'index.html',
       minify: {
         removeStyleLinkTypeAttributes: true,

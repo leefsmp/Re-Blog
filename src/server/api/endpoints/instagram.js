@@ -88,5 +88,29 @@ module.exports = function() {
     res.json(response)
   })
 
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  //
+  /////////////////////////////////////////////////////////////////////////////
+  router.get('/recent', async (req, res) => {
+
+    try {
+
+      const instagramSvc = ServiceManager.getService(
+        'InstagramSvc')
+
+      const response = await instagramSvc.getUserRecentMedia(
+        '5575952778')
+
+      res.json(response)
+
+    } catch (ex) {
+
+      res.json(ex)
+    }
+  })
+
   return router
 }
+
+//https://www.instagram.com/oauth/authorize/?client_id=c2ba92ef11c44dc98263fba525e26707&redirect_uri=http://localhost&response_type=token&scope=public_content

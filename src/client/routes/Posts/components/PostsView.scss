@@ -2,16 +2,13 @@
 
   position: relative;
   overflow: scroll;
-  height: 100%;
   width: 100vw;
 
-  @media screen and (max-width: 1078px) {
-    .container {
-      width: 95%;
-    }
+  .container {
+    width: 95%;
   }
 
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 876px) {
     .container {
       background: rgba(248, 248, 248, 0.4);
       margin: 30px auto 0 auto;
@@ -31,12 +28,12 @@
     }
   }
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 875px) {
     .container {
       background: rgba(248, 248, 248, 0.4);
       margin: 30px auto 0 auto;
-      padding: 20px 0;
       max-width: 978px;
+      padding: 20px 0;
     }
 
     .primary {
@@ -90,6 +87,8 @@
 
     .footer {
       background: #f9f9f9;
+      height: 100%;
+      width: 100%;
     }
   }
 

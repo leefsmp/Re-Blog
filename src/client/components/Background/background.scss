@@ -1,4 +1,7 @@
-.animated-background-output {
-  width: 100vw;
+.background {
+  background: rgba(248, 248, 248, 0.8);
+  transform: rotateZ(180deg);
+  position: fixed;
   height: 100vh;
+  width: 100vw;
 }

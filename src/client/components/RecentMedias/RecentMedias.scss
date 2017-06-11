@@ -1,0 +1,26 @@
+.recent-medias {
+  box-shadow: 20px 20px 33px 0px rgba(0, 0, 0, 0.21);
+  background: #ffffff;
+}
+
+.recent-medias > .title {
+  border-bottom: 1px solid #dedede;
+  padding: 8px 0 8px 8px;
+  background: #f9f9f9;
+  font-weight: 800;
+  font-size: 20px;
+  cursor: default;
+  color: #6d6d6d;
+}
+
+.recent-medias > .title > span {
+  position: relative;
+  margin-right: 6px;
+  font-size: 24px;
+  top: 2px;
+}
+
+.recent-medias .content {
+  margin: 4px 0 0 4px;
+  overflow: auto;
+}

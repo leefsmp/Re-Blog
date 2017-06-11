@@ -1,6 +1,6 @@
 import Trianglify from './react-trianglify.js'
 import Measure from 'react-measure'
-import './background.scss'
+import './Background.scss'
 import React from 'react'
 
 class Background extends React.Component {

@@ -8,7 +8,7 @@ class ImageGrid extends React.Component {
     const items = this.props.images.map((img) => {
 
       return (
-        <a href={img.link} target="_blank">
+        <a key={img.link} href={img.link} target="_blank">
           <figure>
             <img src={img.src}/>
           </figure>

@@ -1,3 +1,4 @@
+import Masonry from 'react-masonry-component'
 import ServiceManager from 'SvcManager'
 import { Link } from 'react-router'
 import './RecentPosts.scss'
@@ -38,7 +39,7 @@ class RecentPosts extends React.Component {
   //
   //
   /////////////////////////////////////////////////////////
-  renderPosts () {
+  renderList () {
 
     const postItems = this.state.posts.map((post) => {
 
@@ -62,7 +63,46 @@ class RecentPosts extends React.Component {
       )
     })
 
-    return postItems
+    return (
+      <div className="list">
+        {postItems}
+      </div>
+    )
+  }
+
+  /////////////////////////////////////////////////////////
+  //
+  //
+  /////////////////////////////////////////////////////////
+  renderMasonry () {
+
+    const postItems = this.state.posts.map((post) => {
+
+      const href = `/posts?id=${post._id}`
+
+      return (
+        <div key={post._id} className="recent-post-item">
+          <Link to={href}>
+            <div className="content">
+              <img src="/resources/img/test.png"/>
+              <div className="title">
+                {post.title}
+              </div>
+              <div className="date">
+                {post.date}
+              </div>
+            </div>
+          </Link>
+          <hr/>
+        </div>
+      )
+    })
+
+    return (
+      <Masonry>
+      {postItems}
+      </Masonry>
+    )
   }
 
   /////////////////////////////////////////////////////////
@@ -71,15 +111,17 @@ class RecentPosts extends React.Component {
   /////////////////////////////////////////////////////////
   render () {
 
+    const posts = (this.props.style === 'masonry')
+      ? this.renderMasonry()
+      : this.renderList()
+
     return (
       <div className="recent-posts">
         <div className="title">
           <span className="fa fa-bars"/>
           Recent Posts
         </div>
-        <div className="list">
-          {this.renderPosts()}
-        </div>
+        {posts}
       </div>
     )
   }
